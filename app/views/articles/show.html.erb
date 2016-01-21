@@ -7,4 +7,9 @@
         method: :delete,
         data: {confirm: "You sure bout dat?"} %>
 <br>
+
+<h3>Comments</h3>
+<%= render partial: 'articles/comment',
+            collection: @article.comments %>
+
 <%= link_to "<< Back to all articles", articles_path %>
