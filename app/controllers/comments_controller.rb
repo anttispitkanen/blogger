@@ -1,4 +1,9 @@
 class CommentsController < ApplicationController
+
+  before_filter :require_login, except: [:create]
+
+
+
   def create
     @comment = Comment.new(comment_params)
     @comment.article_id = params[:article_id]
@@ -7,6 +12,14 @@ class CommentsController < ApplicationController
 
     redirect_to article_path(@comment.article)
   end
+
+#  def destroy
+#    @comment = Comment.find(params[:id])
+#    @comment.destroy
+#    flash.notice = "Comment deleted!"
+#
+#    redirect_to article_path(@comment.article)
+#  end
 
   private
     def comment_params

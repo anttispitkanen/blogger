@@ -21,7 +21,7 @@
   </p>
 
   <p>
-    <% of @article.image.exists? %>
+    <% if @article.image.exists? %>
       <%= image_tag @article.image.url %><br>
     <% end %>
     <%= f.label :image, 'Attach a new image' %><br>
